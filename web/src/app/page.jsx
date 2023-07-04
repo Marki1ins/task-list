@@ -25,34 +25,38 @@ export default function Home() {
         <Header />
         <div className="w-full">
           <h2 className="text-2xl text-grey font-light mb-2">Tasks</h2>
-          {data.map((task) => (
-            <div
-              key={task.id}
-              className="flex items-center justify-center w-full py-2 px-4 bg-dark-900 rounded-2xl text-light"
-            >
-              <input
-                type="text"
-                value={task.title}
-                className={
-                  !edit
-                    ? "flex-1 bg-transparent text-lg outline-none cursor-not-allowed"
-                    : "flex-1 bg-transparent text-lg outline-none text-pink"
-                }
-                readOnly={!edit}
-              />
-              <div className="flex gap-4 text-lg font-bold">
-                <button
-                  onClick={() => handleEditClick(!edit)}
-                  className="bg-gradient-to-tr from-pink to-purple bg-clip-text text-transparentWebkit text-pink uppercase duration-500 cursor-pointer hover:text-pink/80 active:text-pink/60"
-                >
-                  {edit ? "Save" : "Edit"}
-                </button>
-                <button className="text-crimson uppercase duration-500 cursor-pointer hover:text-crimson/80 active:text-crimson/60">
-                  Delete
-                </button>
+          {data.length === 0 ? (
+            <NoTasks />
+          ) : (
+            data.map((task) => (
+              <div
+                key={task.id}
+                className="flex items-center justify-center w-full py-2 px-4 bg-dark-900 rounded-2xl text-light"
+              >
+                <input
+                  type="text"
+                  value={task.title}
+                  className={
+                    !edit
+                      ? "flex-1 bg-transparent text-lg outline-none cursor-not-allowed"
+                      : "flex-1 bg-transparent text-lg outline-none text-pink"
+                  }
+                  readOnly={!edit}
+                />
+                <div className="flex gap-4 text-lg font-bold">
+                  <button
+                    onClick={() => handleEditClick(!edit)}
+                    className="bg-gradient-to-tr from-pink to-purple bg-clip-text text-transparentWebkit text-pink uppercase duration-500 cursor-pointer hover:text-pink/80 active:text-pink/60"
+                  >
+                    {edit ? "Save" : "Edit"}
+                  </button>
+                  <button className="text-crimson uppercase duration-500 cursor-pointer hover:text-crimson/80 active:text-crimson/60">
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </main>
