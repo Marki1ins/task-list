@@ -1,5 +1,6 @@
 "use client";
 
+import { DeleteButton } from "@/components/DeleteButton";
 import { Header } from "@/components/Header";
 import { NoTasks } from "@/components/NoTasks";
 import { fetchData } from "@/utils/fetchData";
@@ -15,6 +16,10 @@ export default function Home() {
 
   const handleEditClick = () => {
     setEdit(!edit);
+  };
+
+  const handleUpdate = async () => {
+    fetchData(setData);
   };
 
   return (
@@ -51,9 +56,7 @@ export default function Home() {
                     >
                       {edit ? "Save" : "Edit"}
                     </button>
-                    <button className="text-crimson uppercase duration-500 cursor-pointer hover:text-crimson/80 active:text-crimson/60">
-                      Delete
-                    </button>
+                    <DeleteButton taskId={task.id} onUpdate={handleUpdate} />
                   </div>
                 </div>
               ))
