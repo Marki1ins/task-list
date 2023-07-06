@@ -2,7 +2,7 @@
 
 Welcome! This repository contains two folders: server and web.
 
-<img src="github/task-list.gif">
+<img width="100%" src="github/task-list.gif">
 
 # 🧠 About
 
