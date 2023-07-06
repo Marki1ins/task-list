@@ -27,7 +27,7 @@ The challenge is to implement a task list with the following functionalities:
 
 1. Clone this repo
 ```bash
-git clone https://github.com/Marki1ins/frontend-challenge.git
+git clone https://github.com/Marki1ins/task-list.git
 ```
 
 2. Go to the project folder
