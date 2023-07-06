@@ -24,12 +24,12 @@ export function DeleteButton(props) {
         <button
           type="button"
           onClick={handleClick}
-          className="text-crimson uppercase duration-700 cursor-pointer hover:text-crimson/80 active:text-crimson/60"
+          className="text-base text-crimson font-bold uppercase duration-700 cursor-pointer hover:text-crimson/80 active:text-crimson/60"
         >
           Delete
         </button>
       ) : (
-        <div className="flex items-center justify-center gap-2 duration-700">
+        <div className="flex items-center justify-center gap-2 text-base font-bold duration-700">
           <span
             onClick={handleClick}
             className="text-pink uppercase duration-500 cursor-pointer hover:text-pink/80"

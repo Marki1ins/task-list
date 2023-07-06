@@ -3,23 +3,19 @@
 import { DeleteButton } from "@/components/DeleteButton";
 import { Header } from "@/components/Header";
 import { NoTasks } from "@/components/NoTasks";
+import { TaskTitleInput } from "@/components/TaskTitleInput";
 import { fetchData } from "@/utils/fetchData";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     fetchData(setData);
   }, []);
 
-  const handleEditClick = () => {
-    setEdit(!edit);
-  };
-
   const handleUpdate = async () => {
-    fetchData(setData);
+    await fetchData(setData);
   };
 
   return (
@@ -37,27 +33,14 @@ export default function Home() {
               data.map((task) => (
                 <div
                   key={task.id}
-                  className="flex items-center justify- w-full py-2 px-4 bg-dark-900 rounded-2xl text-light"
+                  className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-dark-900 rounded-2xl text-light"
                 >
-                  <input
-                    type="text"
+                  <TaskTitleInput
                     value={task.title}
-                    className={
-                      !edit
-                        ? "flex-1 bg-transparent text-lg outline-none cursor-not-allowed"
-                        : "flex-1 bg-transparent text-lg outline-none text-pink"
-                    }
-                    readOnly={!edit}
+                    taskId={task.id}
+                    onUpdate={handleUpdate}
                   />
-                  <div className="flex gap-4 text-lg font-bold">
-                    <button
-                      onClick={() => handleEditClick(!edit)}
-                      className="bg-gradient-to-tr from-pink to-purple bg-clip-text text-transparentWebkit text-pink uppercase duration-500 cursor-pointer hover:text-pink/80 active:text-pink/60"
-                    >
-                      {edit ? "Save" : "Edit"}
-                    </button>
-                    <DeleteButton taskId={task.id} onUpdate={handleUpdate} />
-                  </div>
+                  <DeleteButton taskId={task.id} onUpdate={handleUpdate} />
                 </div>
               ))
             )}
