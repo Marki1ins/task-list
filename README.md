@@ -2,7 +2,7 @@
 
 Welcome! This repository contains two folders: server and web.
 
-![Task_List_-_Google_Chrome_2023-07-05_22-42-59_AdobeExpress](https://github.com/Marki1ins/to-do-list/assets/106609398/e3793a6e-ee06-4ecf-bc7d-5a539ea099e0)
+<img src="">
 
 # 🧠 About
 
