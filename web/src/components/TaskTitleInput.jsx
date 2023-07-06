@@ -49,8 +49,8 @@ export function TaskTitleInput(props) {
         onClick={handleTitleClick}
         className={
           !edit
-            ? "flex-1 bg-transparent text-lg outline-none cursor-pointer"
-            : "flex-1 bg-transparent text-lg outline-none text-pink"
+            ? "flex-1 bg-transparent text-2xl font-light outline-none cursor-pointer"
+            : "flex-1 bg-transparent text-2xl font-light outline-none text-pink"
         }
         readOnly={!edit}
         required

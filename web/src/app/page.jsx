@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckTaskStatus } from "@/components/CheckTaskStatus";
 import { DeleteButton } from "@/components/DeleteButton";
 import { Header } from "@/components/Header";
 import { NoTasks } from "@/components/NoTasks";
@@ -33,8 +34,9 @@ export default function Home() {
               data.map((task) => (
                 <div
                   key={task.id}
-                  className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-dark-900 rounded-2xl text-light"
+                  className="flex items-center justify-center gap-2 w-full py-5 px-4 bg-dark-900 rounded-2xl text-light"
                 >
+                  <CheckTaskStatus taskId={task.id} />
                   <TaskTitleInput
                     value={task.title}
                     taskId={task.id}
